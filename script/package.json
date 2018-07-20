@@ -1,0 +1,16 @@
+{
+  "name": "script",
+  "version": "2.0.0",
+  "description": "",
+  "main": "auto_script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Lucas Silvestri",
+  "license": "ISC",
+  "dependencies": {
+    "pa11y": "^5.0.4",
+    "pa11y-reporter-html": "^1.0.0"
+  }
+}
