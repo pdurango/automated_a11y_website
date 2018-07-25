@@ -18,32 +18,6 @@ from Naked.toolshed.shell import execute_js
 
 start_time = time.time()
 
-# SITE_NAME = "yiiframework"  # make the user fill this in
-# HOME_PAGE = "https://www.yiiframework.com/doc/api/2.0/"
-# DOMAIN_NAME = get_domain_name(HOME_PAGE)
-# A11Y_AUDIT = True
-
-# SITE_NAME = "Lucas Test Page"  # make the user fill this in
-# HOME_PAGE = "https://www.dev.ryerson.ca/accessibility-sandbox/lucas-test-page/brown-bricks-test-page/"
-# DOMAIN_NAME = get_domain_name(HOME_PAGE)
-# A11Y_AUDIT = False
-
-# SITE_NAME = "sushidate"  # make the user fill this in
-# HOME_PAGE = "http://www.sushidate.ca/"
-# DOMAIN_NAME = get_domain_name(HOME_PAGE)
-# A11Y_AUDIT = True
-
-# User input version
-# HOME_PAGE = input("Enter full url for inital seed (ex. http://yiiframework.com/)")
-# DOMAIN_NAME = get_domain_name(HOME_PAGE)
-# SITE_NAME = "yiiframework"
-# if not check_for_files(PROJECT_NAME):
-#     SEARCH_TERM = input("Enter term to be focus crawled")
-
-# SITE_NAME = "Data Science"  # make the user fill this in
-# HOME_PAGE = "https://www.ryerson.ca/graduate/datascience/"
-# DOMAIN_NAME = get_domain_name(HOME_PAGE)
-# A11Y_AUDIT = True
 
 SITE_NAME = ""  # make the user fill this in
 HOME_PAGE = ""

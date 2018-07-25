@@ -17,9 +17,10 @@ async function runPa11y(url) {
 
 function listScript() {
     const args = process.argv;
+    const os = require('os');
     const siteName = args[2];
 
-    pathToSiteDir = siteName
+    pathToSiteDir = os.homedir() + "/" + siteName
     try {
         fd = fs.openSync(pathToSiteDir + '/audits/results-pally.html', 'w');
     } catch (err) {
