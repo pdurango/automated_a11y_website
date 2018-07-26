@@ -22,17 +22,22 @@ def my_form_post():
     home = os.path.expanduser('~')
     q = os.path.join(home, file_loc)
 
-    result = open(q, "r+")
-    content = Markup(result.read())
-    result.close()
+    if os.path.exists(q):
+        result = open(q, "r+")
+        content = Markup(result.read())
+        result.close()
 
-    try:
-        shutil.rmtree(q)
-    except OSError as e:
-        print("Error: %s - %s." % (e.filename, e.strerror))
+        try:
+            shutil.rmtree(q)
+        except OSError as e:
+            print("Error: %s - %s." % (e.filename, e.strerror))
 
-    return render_template('results.html', results=content)
+        return render_template('results.html', results=content)
+
+    else:
+        return render_template('results.html', results="Results file does not exist")
 
 
 if __name__ == "__main__":
     app.run(debug=True)
+

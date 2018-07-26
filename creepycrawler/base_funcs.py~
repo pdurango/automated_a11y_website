@@ -13,7 +13,7 @@ import os
 def create_project_dir(dirs):
     home = os.path.expanduser('~')
     directory = os.path.join(home, dirs)
-    print(os.path.abspath(directory))
+
     if not os.path.exists(directory):
         print("Creating website directory: " + dirs)
         os.makedirs(directory)
