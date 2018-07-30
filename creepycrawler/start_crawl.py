@@ -96,11 +96,13 @@ def main_execute(name, url, ally):
     setup(name, url, ally)
     create_threads()
     crawl()
+
     if A11Y_AUDIT:
         #make_html(SITE_NAME)
 
         if len(SITE_NAME) > 0:
-            js_command = "/var/www/FlaskApps/automated_a11y_website/script/auto_script2.js '" + SITE_NAME + "'"
+            # js_command = "/var/www/FlaskApps/automated_a11y_website/script/auto_script2.js '" + SITE_NAME + "'" ubuntu server
+            js_command = "script/auto_script2.js '" + SITE_NAME + "'"
             success = execute_js(js_command)
             if success:
                 print("Finished accessibility testing " + SITE_NAME)

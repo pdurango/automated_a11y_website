@@ -54,7 +54,7 @@ function listScript() {
                 theLoop(i);       // Call the loop again, and pass it the current value of i
                 console.log("Links left to audit: " + i)
             }
-        }, 1000);
+        }, 300);
     })(array.length -1);
 }
 

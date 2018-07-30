@@ -31,11 +31,23 @@ def my_form_post():
             shutil.rmtree(q)
         except OSError as e:
             print("Error: %s - %s." % (e.filename, e.strerror))
-
-        return render_template('results.html', results=content)
+        if content == "undefined":
+            return render_template('results.html', results="Web page entered is not valid or does not exist")
+        else:
+            return render_template('results.html', results=content)
 
     else:
         return render_template('results.html', results="Results file does not exist")
+
+
+@app.route('/about')
+def about():
+    return render_template('empty.html')
+
+
+@app.route('/contact')
+def contact():
+    return render_template('empty.html')
 
 
 if __name__ == "__main__":
