@@ -5,7 +5,7 @@ html, body {
 
 /* CSS only for examples not required for centering */
 .centerFit {
-  background:grey;
+  background:red;
   position:absolute;
   color:#fff;
   top:50%;
