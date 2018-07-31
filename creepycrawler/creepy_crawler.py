@@ -117,3 +117,13 @@ class CreepyCrawler:
     def update_files():
         set_to_file(CreepyCrawler.queue_set, CreepyCrawler.queue_file)
         set_to_file(CreepyCrawler.crawled_set, CreepyCrawler.crawled_file)
+
+
+    @staticmethod
+    def check_page_limit():
+        # FOLLOWING CODE LIMITS CRAWL TO 200 PAGES
+        temp = sum(1 for _ in open(CreepyCrawler.crawled_file))
+        if temp > 100:
+            print("100 page limit crawled. Focused crawl closing...")
+            #quit()
+            return True

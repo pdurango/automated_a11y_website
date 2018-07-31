@@ -1,7 +1,7 @@
 var html = require('pa11y-reporter-html');
 var pa11y = require('pa11y');
 var fs = require("fs");
-//var y = require('events').EventEmitter.prototype._maxListeners = 100;
+//require('events').EventEmitter.defaultMaxListeners = 0;
 
 
 async function runPa11y(url) {
@@ -34,28 +34,30 @@ function listScript() {
     array = array.filter(function(entry) { return entry.trim() != ''; }); //removes empty element at the end of array
 
     (function theLoop (i) {
-        setTimeout(function () {
-            console.log("url: " + array[i])
-            let reply = runPa11y(array[i])
-            reply.then(function(result) {
-                try {
-                    fd = fs.openSync(pathToSiteDir + '/audits/results-pally.html', 'a');
-                    fs.appendFileSync(fd, result + "<br>", 'utf8');
-                } catch (err) {
-                    console.log("Could not open results.html" + err)
-                } finally {
-                if (fd !== undefined)
-                    fs.closeSync(fd);
-                }
-            });
+    setTimeout(function () {
+        console.log("url: " + array[i])
+        let reply = runPa11y(array[i])
+        process.removeAllListeners('exit')
+        reply.then(function(result) {
+            try {
+                fd = fs.openSync(pathToSiteDir + '/audits/results-pally.html', 'a');
+                fs.appendFileSync(fd, result + "<br>", 'utf8');
+            } catch (err) {
+                console.log("Could not open results.html" + err)
+            } finally {
+            if (fd !== undefined)
+                fs.closeSync(fd);
+            }
 
             --i
-            if (i >= 0) {          // If i > 0, keep going
-                theLoop(i);       // Call the loop again, and pass it the current value of i
+            if (i >= 0) {
+                theLoop(i);
                 console.log("Links left to audit: " + i)
             }
-        }, 300);
-    })(array.length -1);
+        });
+
+    }, 300);
+})(array.length -1);
 }
 
 listScript()
