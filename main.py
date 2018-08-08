@@ -1,7 +1,8 @@
 from flask import Flask, request, render_template, Markup
 from creepycrawler import start_crawl
 import shutil
-import sys, os
+import sys
+import os
 
 app = Flask(__name__)
 
@@ -42,12 +43,17 @@ def my_form_post():
 
 @app.route('/about')
 def about():
-    return render_template('empty.html')
+    return render_template('about.html')
 
 
 @app.route('/contact')
 def contact():
-    return render_template('empty.html')
+    return render_template('contact.html')
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
 
 
 if __name__ == "__main__":

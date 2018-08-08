@@ -82,27 +82,15 @@ def crawl():
         create_jobs()
 
 
-def crawl_test(name, url, ally):
-    setup(name, url, ally)
-    create_threads()
-    crawl()
-    file_loc = SITE_NAME
-    return "./" + file_loc + "/crawled.txt"
-
-
 def main_execute(name, url, ally):
-    #setup("Data Science", "https://www.ryerson.ca/graduate/datascience/", True)
-    #setup(sys.argv[1], sys.argv[2], sys.argv[3]) #Dir name, home url, True or False for pally test
     setup(name, url, ally)
     create_threads()
     crawl()
 
     if A11Y_AUDIT:
-        #make_html(SITE_NAME)
-
         if len(SITE_NAME) > 0:
-            js_command = "/var/www/FlaskApps/automated_a11y_website/script/auto_script2.js '" + SITE_NAME + "'" #ubuntu server
-            # js_command = "script/auto_script2.js '" + SITE_NAME + "'"
+            # js_command = "/var/www/FlaskApps/automated_a11y_website/script/auto_script2.js '" + SITE_NAME + "'" #ubuntu server
+            js_command = "script/auto_script2.js '" + SITE_NAME + "'"
             success = execute_js(js_command)
             if success:
                 print("Finished accessibility testing " + SITE_NAME)

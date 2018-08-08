@@ -106,8 +106,6 @@ class CreepyCrawler:
                 #     short = short + ".html"
                 #     if short in CreepyCrawler.crawled_set or short in CreepyCrawler.queue_set:
                 #         continue
-
-                #FOR TESTING PURPOSES - DELETE
                 if "#" in url:
                     continue
 
@@ -118,12 +116,13 @@ class CreepyCrawler:
         set_to_file(CreepyCrawler.queue_set, CreepyCrawler.queue_file)
         set_to_file(CreepyCrawler.crawled_set, CreepyCrawler.crawled_file)
 
-
     @staticmethod
     def check_page_limit():
         # FOLLOWING CODE LIMITS CRAWL TO 200 PAGES
-        temp = sum(1 for _ in open(CreepyCrawler.crawled_file))
-        if temp > 100:
+        temp = len(CreepyCrawler.crawled_set)
+        if temp > 10:
             print("100 page limit crawled. Focused crawl closing...")
             #quit()
             return True
+        else:
+            return False

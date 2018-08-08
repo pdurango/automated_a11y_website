@@ -34,7 +34,7 @@ function listScript() {
     array = array.filter(function(entry) { return entry.trim() != ''; }); //removes empty element at the end of array
 
     (function theLoop (i) {
-    setTimeout(function () {
+
         console.log("url: " + array[i])
         let reply = runPa11y(array[i])
         process.removeAllListeners('exit')
@@ -56,7 +56,7 @@ function listScript() {
             }
         });
 
-    }, 300);
+
 })(array.length -1);
 }
 
