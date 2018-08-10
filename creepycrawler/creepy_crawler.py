@@ -52,6 +52,10 @@ class CreepyCrawler:
             # print("collect_links called")
             CreepyCrawler.queue_set.remove(page_url)
             CreepyCrawler.crawled_set.add(page_url)
+            # if CreepyCrawler.check_page_limit():
+            #     print("pls dad")
+            #     CreepyCrawler.queue_set.clear()
+            #     CreepyCrawler.crawled_set.clear()
             CreepyCrawler.update_files()
 
     @staticmethod
@@ -121,7 +125,7 @@ class CreepyCrawler:
         # FOLLOWING CODE LIMITS CRAWL TO 200 PAGES
         temp = len(CreepyCrawler.crawled_set)
         if temp > 10:
-            print("100 page limit crawled. Focused crawl closing...")
+            print("10 page limit crawled. Focused crawl closing...")
             #quit()
             return True
         else:

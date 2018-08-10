@@ -3,6 +3,8 @@ from creepycrawler import start_crawl
 import shutil
 import sys
 import os
+import multiprocessing
+
 
 app = Flask(__name__)
 
@@ -29,9 +31,10 @@ def my_form_post():
         result.close()
 
         try:
-            shutil.rmtree(q)
+            shutil.rmtree(home + "/" + dir_name)
         except OSError as e:
             print("Error: %s - %s." % (e.filename, e.strerror))
+
         if content == "undefined":
             return render_template('results.html', results="Web page entered is not valid or does not exist")
         else:
