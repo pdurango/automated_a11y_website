@@ -3,10 +3,10 @@ from creepycrawler import start_crawl
 import shutil
 import sys
 import os
-import multiprocessing
 
 
 app = Flask(__name__)
+#you are we
 
 
 @app.route('/')
@@ -48,10 +48,6 @@ def my_form_post():
 def about():
     return render_template('about.html')
 
-
-@app.route('/contact')
-def contact():
-    return render_template('contact.html')
 
 
 @app.errorhandler(404)

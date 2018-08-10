@@ -1,1 +1,54 @@
-About page
+<!--suppress ALL -->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Automated A11y</title>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+    </script>
+    <!-- Latest compiled and minified JavaScript:Bootstrap 3 -->
+    <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
+
+</head>
+
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color:#467b9d;">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand" href="/">Automated A11y</a>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+            <li class="nav-item active"><a class="nav-link" href="{{ url_for('about') }}">About</a></li>
+        </ul>
+    </div>
+    <div class="navbar-collapse collapse" id="navbarTogglerDemo01">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="https://github.com/pdurango/automated_a11y_website"><i class="fa fa-github" aria-hidden="true"></i> Open Source Code</a></li>
+        </ul>
+    </div>
+</nav>
+
+<body>
+    <div class="jumbotron jumbotron-fluid text-center">
+        <div class="container">
+            <h1 class="display-4">About - Automated A11y</h1>
+            <p class="lead">Automated A11y crawls websites and tests each page within for accessibility following the WCAG 2.0 guidelines.</p>
+            <a class="btn btn-dark btn-lg" href="https://github.com/pdurango/automated_a11y_website" role="button">Learn more about Automated A11y</a>
+        </div>
+    </div>
+
+</body>
+
+<footer>
+    <div class="footer-copyright text-center py-3">© 2018 Copyright:
+        <a href="https://github.com/pdurango" style="color:white">Lucas Silvestri</a>
+    </div>
+</footer>
+
+</html>

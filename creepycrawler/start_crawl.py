@@ -25,7 +25,7 @@ DOMAIN_NAME = ""
 A11Y_AUDIT = False
 QUEUE_FILE = ""
 CRAWLED_FILE = ""
-NUMBER_OF_THREADS = 4
+NUMBER_OF_THREADS = 2
 queue = Queue()  # thread queue
 
 
