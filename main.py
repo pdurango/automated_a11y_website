@@ -6,7 +6,7 @@ import os
 
 
 app = Flask(__name__)
-#you are we
+# you are we
 
 
 @app.route('/')
@@ -47,7 +47,6 @@ def my_form_post():
 @app.route('/about')
 def about():
     return render_template('about.html')
-
 
 
 @app.errorhandler(404)

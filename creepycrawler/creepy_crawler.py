@@ -50,8 +50,13 @@ class CreepyCrawler:
                 len(CreepyCrawler.crawled_set)))
             CreepyCrawler.add_links_to_queue(CreepyCrawler.collect_links(page_url))
             # print("collect_links called")
-            CreepyCrawler.queue_set.remove(page_url)
-            CreepyCrawler.crawled_set.add(page_url)
+
+            try:
+                CreepyCrawler.queue_set.remove(page_url)
+                CreepyCrawler.crawled_set.add(page_url)
+            except KeyError as e:
+                print('{!r}; Not found'.format(e))
+
             CreepyCrawler.update_files()
 
     @staticmethod
