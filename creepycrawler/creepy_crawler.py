@@ -101,16 +101,16 @@ class CreepyCrawler:
                 if "javascript" in url:
                     continue
                 #May not work - Test Arts site
-                # if url.endswith(".html"):
-                #     short = url[:-5]
-                #     short = short + "/"
-                #     if short in CreepyCrawler.crawled_set or short in CreepyCrawler.queue_set:
-                #         continue
-                # if url.endswith("/"):
-                #     short = url[:-1]
-                #     short = short + ".html"
-                #     if short in CreepyCrawler.crawled_set or short in CreepyCrawler.queue_set:
-                #         continue
+                if url.endswith(".html"):
+                    short = url[:-5]
+                    short = short + "/"
+                    if short in CreepyCrawler.crawled_set or short in CreepyCrawler.queue_set:
+                        continue
+                if url.endswith("/"):
+                    short = url[:-1]
+                    short = short + ".html"
+                    if short in CreepyCrawler.crawled_set or short in CreepyCrawler.queue_set:
+                        continue
                 if "#" in url:
                     continue
 

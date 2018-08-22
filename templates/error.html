@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>About - Automated A11y</title>
+    <title>Automated A11y</title>
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
@@ -24,7 +24,7 @@
         <a class="navbar-brand" href="/">Automated A11y</a>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-            <li class="nav-item active"><a class="nav-link" href="{{ url_for('about') }}">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('about') }}">About</a></li>
         </ul>
     </div>
     <div class="navbar-collapse collapse" id="navbarTogglerDemo01">
@@ -37,12 +37,25 @@
 <body>
     <div class="jumbotron jumbotron-fluid text-center">
         <div class="container">
-            <h1 class="display-4">About</h1>
+            <h1 class="display-4">Automated A11y</h1>
             <p class="lead">Automated A11y crawls websites and tests each page within for accessibility following the WCAG 2.0 guidelines.</p>
             <a class="btn btn-dark btn-lg" href="https://github.com/pdurango/automated_a11y_website" role="button">Learn more about Automated A11y</a>
         </div>
     </div>
 
+
+    <div class="container centerFit" id="searchField">
+        <!--vertical align on parent using my-auto, horizontal align on self mx-auto-->
+        <div class="row">
+            <div class="col-sm-12 my-auto">
+                <div class=" card-block w-80 mx-auto">
+                    <h2>ERROR</h2>
+                    <p>{{ error_message }}</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </body>
 
 <footer>

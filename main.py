@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, Markup
+from flask import Flask, request, render_template, Markup, send_from_directory
 from creepycrawler import start_crawl
 import shutil
 import sys
@@ -30,18 +30,18 @@ def my_form_post():
         content = Markup(result.read())
         result.close()
 
-        try:
-            shutil.rmtree(home + "/" + dir_name)
-        except OSError as e:
-            print("Error: %s - %s." % (e.filename, e.strerror))
+        # try:
+        #     shutil.rmtree(home + "/" + dir_name)
+        # except OSError as e:
+        #     print("Error: %s - %s." % (e.filename, e.strerror))
 
-        if content == "undefined":
-            return render_template('results.html', results="Web page entered is not valid or does not exist")
+        if content == "undefined<br>":
+            return render_template('error.html', error_message="Web page entered is not valid or does not exist")
         else:
             return render_template('results.html', results=content)
 
     else:
-        return render_template('results.html', results="Results file does not exist")
+        return render_template('error.html', error_message="Results file does not exist")
 
 
 @app.route('/about')
@@ -52,6 +52,11 @@ def about():
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
+
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'), 'img/favicon-16x16.png', mimetype='image/vnd.microsoft.icon')
 
 
 if __name__ == "__main__":
